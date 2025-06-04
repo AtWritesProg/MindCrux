@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+🧠 AI Summarizer App
+A sleek, interactive AI-powered summarization tool built with React, styled with custom CSS, and backed by a Node.js + Express server. It includes a chatbot-style layout, light/dark theme support, a welcome intro with a loading screen, and file input for future expansion.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Features
+🤖 Chat-like UI with clear separation between user and AI messages
 
-## Available Scripts
+📥 File upload icon ready for image input (expandable)
 
-In the project directory, you can run:
+🧪 Real-time AI summarization using OpenAI/Gemini API
 
-### `npm start`
+⌛ Intro screen with "Enter" button and animated progress bar
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🎨 Fully custom styled using pure CSS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🌙 Dark theme interface
 
-### `npm test`
+🔁 Persistent message history (optional via localStorage)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+🛠️ Tech Stack
+Frontend	Backend	Other
+React	Node.js	Express
+CSS	Axios	OpenAI/Gemini API (backend)
 
-### `npm run build`
+🌐 API Used
+This project connects to a backend server that uses:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Google Generative AI or OpenAI API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Make sure to set your API key in .env:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ini
+Copy
+Edit
+GEMINI_API_KEY=your_key_here
+📸 Screenshots
+Intro Screen	Chat UI
 
-### `npm run eject`
+✅ TODO / Upcoming
+ Save history using localStorage or database
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ Add support for PDF, DOCX summarization
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ Enable image-to-text summary
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ Add light mode toggle
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ Improve mobile responsiveness
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+👨‍💻 Author
+Atherva Salunke
