@@ -19,18 +19,15 @@ function App() {
     if (!text.trim()) return;
   
     setLoading(true);
-    setSummary(''); // Clear the summary before fetching
+    setSummary(''); 
   
     try {
-      // Log request details
       console.log('Sending POST request with text:', text);
       
-      // Update the API endpoint URL to match your backend
       const response = await axios.post('https://mindcrux-backend.onrender.com', { text });
 
       console.log('Received response:', response);
 
-      // Set the summary from the backend response
       setSummary(response.data.summary);
       
       // Clear the input text after summary is set

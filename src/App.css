@@ -307,7 +307,7 @@ button:disabled {
     transition: transform 0.3s ease;
     border-right: 1px solid #333;
     padding: 20px;
-    padding-top: 60px; /* Space for close button */
+    padding-top: 60px; 
   }
 
   .sidebar.open {
@@ -317,14 +317,14 @@ button:disabled {
   .main {
     width: 100%;
     padding: 15px;
-    padding-top: 60px; /* Space for hamburger menu */
+    padding-top: 60px; 
     height: 100vh;
     box-sizing: border-box;
   }
 
   .chat-box {
     padding-right: 0;
-    height: calc(100vh - 140px); /* Account for header and input */
+    height: calc(100vh - 140px); 
     margin-bottom: 15px;
     overflow-y: auto;
   }
