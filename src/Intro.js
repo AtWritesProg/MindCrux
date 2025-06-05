@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Intro.css'; 
 
 const loadingTexts = [
   "Loading...",
@@ -40,14 +41,8 @@ export default function Intro({ onFinish }) {
     <div style={styles.container}>
       {showWelcome ? (
         <>
-          <div className='container'>
-            <h1 style={{ color: '#00ffae',
-                fontSize: '100px',
-                fontWeight: 'bold',
-                textAlign: 'center',
-                marginBottom: '20px' 
-
-            }}>MindCrux</h1>
+          <div className='intro-title-container'>
+            <h1 className='intro-main-title'>MindCrux</h1>
           </div>
           <h1 style={styles.welcome}>Welcome To MindCrux<br/>Click To Enter.</h1>
           <button style={styles.enterButton} onClick={handleEnter}>Enter</button>
@@ -66,52 +61,54 @@ export default function Intro({ onFinish }) {
 
 const styles = {
   container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
     height: '100vh',
     backgroundColor: '#121212',
     color: 'white',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    padding: 20,
+    textAlign: 'center',
+    padding: '20px',
+    boxSizing: 'border-box',
   },
   welcome: {
-    fontSize: 24,
-    textAlign: 'center',
-    maxWidth: 400,
-    marginBottom: 20,
+    fontSize: '1.5rem',
+    marginBottom: '40px',
+    maxWidth: '600px',
+    fontWeight: 'normal',
   },
   enterButton: {
-    padding: '10px 30px',
-    fontSize: 18,
-    borderRadius: 10,
-    border: 'none',
-    cursor: 'pointer',
     backgroundColor: '#00ffae',
     color: 'black',
+    border: 'none',
+    padding: '15px 30px',
+    fontSize: '1.2rem',
+    borderRadius: '10px',
+    cursor: 'pointer',
     fontWeight: 'bold',
-    transition: 'background-color 0.3s',
+    transition: 'all 0.3s ease',
   },
   loadingContainer: {
-    width: 300,
-    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '20px',
   },
   progressBarBackground: {
-    width: '100%',
-    height: 20,
-    backgroundColor: '#2d2d2d',
-    borderRadius: 10,
+    width: '300px',
+    height: '8px',
+    backgroundColor: '#333',
+    borderRadius: '4px',
     overflow: 'hidden',
-    marginBottom: 10,
   },
   progressBarFill: {
     height: '100%',
     backgroundColor: '#00ffae',
-    borderRadius: 10,
-    transition: 'width 0.1s linear',
+    transition: 'width 0.1s ease',
   },
   loadingText: {
-    fontSize: 16,
+    fontSize: '1.1rem',
+    color: '#ccc',
   },
 };

@@ -9,6 +9,7 @@ body{
   display: flex;
   height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 
 .sidebar {
@@ -16,6 +17,8 @@ body{
   background-color: #1e1e1e;
   padding: 20px;
   border-right: 1px solid #333;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
 }
 
 .sidebar h2 {
@@ -99,7 +102,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* From Uiverse.io by vinodjangid07 */ 
+/* Message Box Styling */
 .messageBox {
   width: 100%;
   max-width: 700px;
@@ -123,9 +126,11 @@ button:disabled {
   align-items: center;
   justify-content: center;
 }
+
 #file {
   display: none;
 }
+
 .fileUploadWrapper label {
   cursor: pointer;
   width: fit-content;
@@ -135,27 +140,34 @@ button:disabled {
   justify-content: center;
   position: relative;
 }
+
 .fileUploadWrapper label svg {
   height: 18px;
   width: 18px;
 }
+
 .fileUploadWrapper label svg path {
   transition: all 0.3s;
 }
+
 .fileUploadWrapper label svg circle {
   transition: all 0.3s;
 }
+
 .fileUploadWrapper label:hover svg path {
   stroke: #fff;
 }
+
 .fileUploadWrapper label:hover svg circle {
   stroke: #fff;
   fill: #3c3c3c;
 }
+
 .fileUploadWrapper label:hover .tooltip {
   display: block;
   opacity: 1;
 }
+
 .tooltip {
   position: absolute;
   top: -40px;
@@ -171,6 +183,7 @@ button:disabled {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.596);
   transition: all 0.3s;
 }
+
 #messageInput {
   flex: 1;
   height: 100%;
@@ -180,6 +193,7 @@ button:disabled {
   color: white;
   font-size: 14px;
 }
+
 #messageInput:focus ~ #sendButton svg path,
 #messageInput:valid ~ #sendButton svg path {
   fill: #3c3c3c;
@@ -194,14 +208,196 @@ button:disabled {
   justify-content: center;
   cursor: pointer;
 }
+
 #sendButton svg {
   height: 20px;
   width: 20px;
 }
+
 #sendButton svg path {
   transition: all 0.3s;
 }
+
 #sendButton:hover svg path {
   fill: #3c3c3c;
   stroke: white;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1002;
+  background-color: #2d2d2d;
+  border: 1px solid #555;
+  color: #00ffae;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+  background-color: #3d3d3d;
+}
+
+/* Sidebar Close Button */
+.sidebar-close-btn {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+  color: #ccc;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-close-btn:hover {
+  color: white;
+  background-color: #3d3d3d;
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: row;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .sidebar-close-btn {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    z-index: 1001;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    border-right: 1px solid #333;
+    padding: 20px;
+    padding-top: 60px; /* Space for close button */
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main {
+    width: 100%;
+    padding: 15px;
+    padding-top: 60px; /* Space for hamburger menu */
+    height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .chat-box {
+    padding-right: 0;
+    height: calc(100vh - 140px); /* Account for header and input */
+    margin-bottom: 15px;
+    overflow-y: auto;
+  }
+
+  .message {
+    max-width: 95%;
+    font-size: 14px;
+    padding: 8px 12px;
+    margin: 8px 0;
+  }
+
+  .messageBox {
+    height: 50px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 12px;
+    gap: 12px;
+  }
+
+  .fileUploadWrapper label svg {
+    height: 20px;
+    width: 20px;
+  }
+
+  #messageInput {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  #sendButton svg {
+    height: 22px;
+    width: 22px;
+  }
+
+  .input-area {
+    gap: 0;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 260px;
+  }
+
+  .main {
+    padding: 10px;
+    padding-top: 60px;
+  }
+
+  .chat-box {
+    height: calc(100vh - 120px);
+    margin-bottom: 10px;
+  }
+
+  .message {
+    max-width: 98%;
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .messageBox {
+    height: 45px;
+    padding: 0 10px;
+    gap: 10px;
+  }
+
+  .sidebar h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+
+  .sidebar ul li {
+    padding: 8px 0;
+    font-size: 14px;
+  }
 }

@@ -4,12 +4,12 @@ import './App.css';
 import Intro from './Intro';
 import axios from 'axios';
 
-
 function App() {
   const [text, setText] = useState('');
   const [summary, setSummary] = useState('');
   const [loading, setLoading] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   if (showIntro) {
     return <Intro onFinish={() => setShowIntro(false)} />;
@@ -26,10 +26,10 @@ function App() {
       console.log('Sending POST request with text:', text);
       
       // Update the API endpoint URL to match your backend
-      const response = await axios.post('http://localhost:5000/api/summarize', { text });
-  
+      const response = await axios.post('https://mindcrux-backend.onrender.com', { text });
+
       console.log('Received response:', response);
-  
+
       // Set the summary from the backend response
       setSummary(response.data.summary);
       
@@ -44,13 +44,32 @@ function App() {
   
     setLoading(false);
   };
-  
-  
-  
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
 
   return (
     <div className="app">
-      <Sidebar />
+      {/* Mobile hamburger menu button */}
+      <button className="mobile-menu-btn" onClick={toggleSidebar}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+
+      {/* Sidebar overlay for mobile */}
+      <div 
+        className={`sidebar-overlay ${sidebarOpen ? 'active' : ''}`}
+        onClick={closeSidebar}
+      ></div>
+
+      <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
+      
       <div className="main">
         <div className="chat-box">
           {text && <div className="message user"><p>{text}</p></div>}
