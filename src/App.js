@@ -24,7 +24,7 @@ function App() {
     try {
       console.log('Sending POST request with text:', text);
       
-      const response = await axios.post('https://mindcrux-backend.onrender.com', { text });
+      const response = await axios.post('https://mindcrux-backend.onrender.com/api/summarize', { text });
 
       console.log('Received response:', response);
 
